@@ -36,7 +36,7 @@ class Scraper(BaseTool):
         file_path = os.path.join(self._filtered_path, "jobs.json")
         self._save_processed_job_(jobs, file_path)
 
-        return ", ".join(jobs[:3])
+        return ", ".join(jobs[:5])
     
     def _save_processed_job_(self, jobs, file_name):
         try:
