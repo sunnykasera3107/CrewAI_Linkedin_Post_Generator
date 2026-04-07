@@ -1,0 +1,28 @@
+scraper_task:
+  description: >
+    Use the scraping tool to extract job titles.
+    Format the output as a list.
+  expected_output: >
+    A Python list of job titles like:
+    ["Data Analyst", "ML Engineer", ...]
+  verbose: true
+researcher_task: 
+  description: >
+    Your task is to research on the scraped content to get some important and unique points based on factual data.
+  expected_output: >
+    The output must have information in number of points.
+  verbose: true
+writer_task:
+  description: >
+    Write a creative LinkedIn post based on the research report: {skills}.
+    The post should be engaging, human-like, and optimized for LinkedIn engagement.
+    After generating the post, you MUST use the write_to_file tool to save it into a .txt file.
+  expected_output: >
+    A LinkedIn post that has been saved into a file using the write_to_file tool.
+    The post must include:
+    - A strong tagline aligned with the research report
+    - A thought-provoking question for the reader
+    - 2-4 factual points or skill explanations
+    - A short conclusion (1-2 lines)
+    - A final engagement question
+    verbose: true
