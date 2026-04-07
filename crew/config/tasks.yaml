@@ -25,4 +25,8 @@ writer_task:
     - 2-4 factual points or skill explanations
     - A short conclusion (1-2 lines)
     - A final engagement question
-    verbose: true
+    - No emojis or special unicode characters
+    - No icons or symbols
+    - Only use standard ASCII characters (letters, numbers, punctuation)
+    - Formal and engaging tone
+  verbose: true
