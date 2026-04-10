@@ -1,13 +1,9 @@
 from crew.crew import CrewCrew
-import yaml
-
+# import yaml, os
 def main():
     crew = CrewCrew()
-    with open("config/settings.yaml", "r") as f:
-        config = yaml.safe_load(f)
-    skills = {"skills": ",".join(config.get("skills"))}
-    print(skills)
-    crew.crew().kickoff(inputs=skills)
+    skill = input("Enter number of skill only one at a time: ")
+    crew.crew().kickoff(inputs={"query": skill})
     print("Linkedin post generated")
 
 

@@ -1,10 +1,8 @@
 from crewai import Agent, LLM
 from crewai.project import CrewBase, agent
-from crewai_tools import ScrapeWebsiteTool
-from services.scrapers.remoteok import RemoteOk
-from services.scraper import Scraper
 from services.serper import SearchSerper
 from services.write_to_file import WriteToFile
+from services.rag_pipeline import RAGPipeline
 import yaml
 
 @CrewBase
@@ -13,9 +11,9 @@ class CrewAgents:
     agents_config_path = "config/agents.yaml"
 
     def __init__(self):
-        self.scraper_tool = Scraper(scrapers_list=[RemoteOk()])
         self.serper_tool = SearchSerper()
         self.filewriter = WriteToFile()
+        self.rag_pipeline = RAGPipeline()
 
     def get_config(self):
         with open("crew/"+self.agents_config_path, "r") as f:
@@ -29,11 +27,11 @@ class CrewAgents:
         )
 
     @agent
-    def scraper(self) -> Agent:
+    def rag_agent(self) -> Agent:
         config = self.get_config()
         return Agent(
-            config=config['scraper'],   # type: ignore[index]
-            tools=[self.scraper_tool],
+            config=config['rag_agent'],   # type: ignore[index]
+            tools=[self.rag_pipeline],
             llm=self.get_llm()
         )
     

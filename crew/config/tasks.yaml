@@ -1,20 +1,25 @@
-scraper_task:
+rag_task:
   description: >
-    Use the scraping tool to extract job titles.
+    Use the RAG pipeline tool to extract meaningful context and information.
     Format the output as a list.
   expected_output: >
-    A Python list of job titles like:
-    ["Data Analyst", "ML Engineer", ...]
+    Important information matching with given query.
+    Meaningful and key points context for next research task.
   verbose: true
 researcher_task: 
   description: >
-    Your task is to research on the scraped content to get some important and unique points based on factual data.
+    your task is to research on given query and context based on ancistor tools
+    Your task is to research on the content to get some important and unique points based on factual data.
   expected_output: >
     The output must have information in number of points.
+    Don't include tables
+    No special keywords
+    No symbols
+    Include only charecters, numbers, punctuations etc.
   verbose: true
 writer_task:
   description: >
-    Write a creative LinkedIn post based on the research report: {skills}.
+    Write a creative LinkedIn post based on the research report.
     The post should be engaging, human-like, and optimized for LinkedIn engagement.
     After generating the post, you MUST use the write_to_file tool to save it into a .txt file.
   expected_output: >

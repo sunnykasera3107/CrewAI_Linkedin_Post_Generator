@@ -17,11 +17,11 @@ class CrewTasks:
         return tasks_config
     
     @task
-    def scraper(self) -> Task:
+    def rag_task(self) -> Task:
         config = self.get_config()
         return Task(
-            config=config['scraper_task'],    # type: ignore[index]
-            agent=self.agents_obj.scraper()
+            config=config['rag_task'],    # type: ignore[index]
+            agent=self.agents_obj.rag_agent()
         )
     
     @task
@@ -30,7 +30,7 @@ class CrewTasks:
         return Task(
             config=config['researcher_task'],   # type: ignore[index]
             agent=self.agents_obj.researcher(),
-            context=[self.scraper()]
+            context=[self.rag_task()]
         )
     
     @task

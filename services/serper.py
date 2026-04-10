@@ -2,6 +2,8 @@ import os, json
 import serpapi
 from crewai.tools import BaseTool
 
+from utilities import convert_json_txt
+
 class SearchSerper(BaseTool):
     name: str ="Search using serper"
     description: str ="Search for user query using serper"
@@ -25,7 +27,9 @@ class SearchSerper(BaseTool):
                 "snippet": result.get("snippet")
             })
 
-        return json.dumps(searched_results)
+        return convert_json_txt(searched_results)
+    
+
 
 if __name__ == "__main__":
     serper_tool = SearchSerper()

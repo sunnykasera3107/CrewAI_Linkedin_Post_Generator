@@ -23,12 +23,12 @@ class CrewCrew:
 
         return Crew(
             agents=[
-                self.agents_obj.scraper(),
+                self.agents_obj.rag_agent(),
                 self.agents_obj.researcher(),
                 self.agents_obj.writer()
             ],
             tasks=[
-                self.tasks_obj.scraper(),
+                self.tasks_obj.rag_task(),
                 self.tasks_obj.researcher(),
                 self.tasks_obj.writer()
             ],

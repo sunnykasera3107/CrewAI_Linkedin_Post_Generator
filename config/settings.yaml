@@ -1,7 +1,8 @@
-skills:
-  - python
-  - ai
-  - ml
-  - machine-learning
 data:
+  - id
   - position
+  - company
+  - tags
+  - description
+skills:
+  - Python

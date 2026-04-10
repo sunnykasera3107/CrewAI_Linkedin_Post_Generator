@@ -1,4 +1,10 @@
 crewai
 crewai_tools
-python-yaml
+pyyaml
 serpapi
+langchain
+langchain-community
+chromadb
+pypdf
+sentence-transformers
+bs4 
